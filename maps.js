@@ -70,7 +70,7 @@ function initialize() {
             path: google.maps.SymbolPath.CIRCLE,
             scale: 10
         },
-        title: 'Bluntisham Rectory, St. Ives (1897-1915)',
+        title: 'Bluntisham Rectory, St. Ives (1897-1916)',
     });
     markers[2] = new google.maps.Marker({
         position: new google.maps.LatLng(51.06938, -1.78394),
@@ -88,7 +88,7 @@ function initialize() {
             scale: 10
         },
         map: map,
-        title: '80 Westbourne Avenue, Hull',
+        title: '80 Westbourne Avenue, Hull (1917)',
     });
     markers[4] = new google.maps.Marker({
         position: new google.maps.LatLng(51.759951, -1.2614),
