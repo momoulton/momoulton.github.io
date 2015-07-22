@@ -1,15 +1,18 @@
-var people = [];
+var nodes = [];
 
-var Person = function(name, node, options) {
+var Person = function(name, category, options) {
       var me = this;
       this.name = name;
-      this.node = node;
+      this.category = category;
       this.options = options;
       Object.keys(options).forEach(function(key) {
         me[key] = options[key];
       });
-      people.push(me);
+      nodes.push(me);
     };
+
+    sayersstuff = {start_date: 1893, end_date: 1957};
+    sayers = new Person("Dorothy L. Sayers", "self", sayersstuff);
 
     cournosstuff = {blurb: "John Cournos was a Russian-born American writer who lived in London for a period. He probably met Sayers through the network of friends who lived at 44 Mecklenburgh Square, which was also briefly Sayers' address. Sayers and Cournos had a romantic relationship, which ended badly. They recounted the relationship in two separate novels, <i>Strong Poison</i> and <i>The Devil is an English Gentleman</i>. Cournos later married the American mystery writer Sybil Norton.", themes: ["romance"], places: ["London"], start_date: 1921, end_date: 1926, works: ["Strong Poison (DLS, 1930)", "The Devil is an English Gentleman (JC, 1932)", "Autobiography (JC, 1935)"]};
     cournos = new Person("John Cournos", "London", cournosstuff);
@@ -45,7 +48,7 @@ var Person = function(name, node, options) {
     pgfather = new Person("Robert Sayers", "family", pgfatherstuff);
 
     mgfatherstuff = {blurb: "Percival Leigh was Dorothy Sayers' maternal grandfather. He was a humorist, actor, and friend to novelists Dickens and Thackeray."};
-    mgfather = new Person("Robert Sayers", "family", mgfatherstuff);
+    mgfather = new Person("Percival Leigh", "family", mgfatherstuff);
 
     mabelstuff = {blurb: "Mabel Leigh was Dorothy Sayers' aunt."};
     mabel = new Person("Mabel Leigh", "family", mabelstuff);
@@ -151,28 +154,193 @@ var Person = function(name, node, options) {
     sonstuff = {blurb: "John Anthony (White) Fleming was Sayers' son, born in January 1924. He was raised by Ivy Shrimpton and adopted legally by Mac Fleming. Sayers paid for his upbringing and became increasingly involved in his life as he got older, though she never disclosed his existence to her parents. Fleming attended Oxford (Balliol College).", start_date: 1924, end_date: 1957};
     son = new Person("John Anthony Fleming", "family", sonstuff);
 
+var Category = function(name) {
+      var me = this;
+      this.name = name;
+      nodes.push(me);
+    };
 
-people.forEach(function(n) {
-      var div = document.createElement('div');
-      var display = n.name + ", " + n.node;
-      if (typeof n.options["blurb"] !== "undefined") {
-        display = display + "<br>" + "About: " + n.blurb;
-      };
-      if (typeof n.options["start_date"] !== "undefined") {
-        display = display + "<br>" + "Start Date: " + n.start_date;
-      };
-      if (typeof n.options["end_date"] !== "undefined") {
-        display = display + "<br>" + "End Date: " + n.end_date;
-      };
-      if (typeof n.options["places"] !== "undefined") {
-        display = display + "<br>" + "Places: " + n.places;
-      };
-      if (typeof n.options["themes"] !== "undefined") {
-        display = display + "<br>" + "Themes: " + n.themes;
-      };
-      if (typeof n.options["works"] !== "undefined") {
-        display = display + "<br>" + "Related Works: " + n.works;
-      };
-      div.innerHTML = display + "<br> <br>";
-      document.body.appendChild(div);
-    })
+    family = new Category("Family");
+    london = new Category("London");
+    oxford = new Category("Oxford");
+    somerville = new Category("Somerville");
+    bluntisham = new Category("Bluntisham");
+    france = new Category("L'Ecole des Roches");
+
+// nodes.forEach(function(n) {
+//       var div = document.createElement('div');
+//       var display = n.name + ", " + n.category;
+//       if (typeof n.options["blurb"] !== "undefined") {
+//         display = display + "<br>" + "About: " + n.blurb;
+//       };
+//       if (typeof n.options["start_date"] !== "undefined") {
+//         display = display + "<br>" + "Start Date: " + n.start_date;
+//       };
+//       if (typeof n.options["end_date"] !== "undefined") {
+//         display = display + "<br>" + "End Date: " + n.end_date;
+//       };
+//       if (typeof n.options["places"] !== "undefined") {
+//         display = display + "<br>" + "Places: " + n.places;
+//       };
+//       if (typeof n.options["themes"] !== "undefined") {
+//         display = display + "<br>" + "Themes: " + n.themes;
+//       };
+//       if (typeof n.options["works"] !== "undefined") {
+//         display = display + "<br>" + "Related Works: " + n.works;
+//       };
+//       div.innerHTML = display + "<br> <br>";
+//       document.body.appendChild(div);
+//     })
+
+// var count = 0;
+
+// nodes.forEach(function(n) {
+//   var div = document.createElement('div');
+//   div.innerHTML = count + ": " + n.name + " " + n.category;
+//   document.body.appendChild(div);
+//   count = count + 1;
+// });
+
+links = [
+  {source: 0, target: 47},
+  {source: 0, target: 48},
+  {source: 0, target: 49},
+  {source: 0, target: 51},
+  {source: 0, target: 52},
+  {source: 49, target: 50},
+  {source: 47, target: 46},
+  {source: 46, target: 18},
+  {source: 46, target: 45},
+  {source: 47, target: 9},
+  {source: 9, target: 10},
+  {source: 9, target: 11},
+  {source: 9, target: 14},
+  {source: 9, target: 19},
+  {source: 9, target: 20},
+  {source: 47, target: 10},
+  {source: 10, target: 12},
+  {source: 10, target: 13},
+  {source: 10, target: 15},
+  {source: 10, target: 16},
+  {source: 10, target: 18},
+  {source: 15, target: 16},
+  {source: 47, target: 11},
+  {source: 47, target: 12},
+  {source: 47, target: 13},
+  {source: 47, target: 14},
+  {source: 47, target: 15},
+  {source: 47, target: 16},
+  {source: 47, target: 18},
+  {source: 47, target: 19},
+  {source: 47, target: 20},
+  {source: 48, target: 1},
+  {source: 48, target: 5},
+  {source: 5, target: 46},
+  {source: 48, target: 7},
+  {source: 48, target: 41},
+  {source: 48, target: 42},
+  {source: 48, target: 43},
+  {source: 48, target: 44},
+  {source: 48, target: 45},
+  {source: 49, target: 3},
+  {source: 49, target: 21},
+  {source: 21, target: 38},
+  {source: 49, target: 22},
+  {source: 49, target: 26},
+  {source: 49, target: 27},
+  {source: 27, target: 23},
+  {source: 49, target: 31},
+  {source: 31, target: 32},
+  {source: 49, target: 32},
+  {source: 49, target: 38},
+  {source: 49, target: 40},
+  {source: 32, target: 40},
+  {source: 50, target: 2},
+  {source: 50, target: 6},
+  {source: 50, target: 8},
+  {source: 6, target: 35},
+  {source: 8, target: 36},
+  {source: 50, target: 35},
+  {source: 50, target: 36},
+  {source: 50, target: 23},
+  {source: 50, target: 25},
+  {source: 50, target: 28},
+  {source: 50, target: 29},
+  {source: 50, target: 30},
+  {source: 50, target: 34},
+  {source: 34, target: 4},
+  {source: 49, target: 4},
+  {source: 52, target: 4},
+  {source: 39, target: 4},
+  {source: 50, target: 37},
+  {source: 51, target: 17},
+  {source: 20, target: 17},
+  {source: 52, target: 4},
+  {source: 52, target: 33},
+  {source: 52, target: 39},
+  {source: 43, target: 44},
+  {source: 43, target: 1}
+]
+
+var width = 640,
+    height = 640;
+
+var color = d3.scale.category20();
+
+var svg = d3.select('body').append('svg')
+    .attr('width', width)
+    .attr('height', height);
+
+var force = d3.layout.force()
+    .size([width, height])
+    .nodes(nodes)
+    .links(links);
+
+force.linkDistance(width/2);
+
+var link = svg.selectAll('.link')
+    .data(links)
+    .enter().append('line')
+    .attr('class', 'link');
+
+
+var node = svg.selectAll('.node')
+    .data(nodes)
+    .enter().append('circle')
+    .attr('class', 'node');
+
+
+
+force.on('end', function() {
+
+    // When this function executes, the force layout
+    // calculations have concluded. The layout will
+    // have set various properties in our nodes and
+    // links objects that we can use to position them
+    // within the SVG container.
+
+    // First let's reposition the nodes. As the force
+    // layout runs it updates the `x` and `y` properties
+    // that define where the node should be centered.
+    // To move the node, we set the appropriate SVG
+    // attributes to their new values. We also have to
+    // give the node a non-zero radius so that it's visible
+    // in the container.
+
+    node.attr('r', width/25)
+        .attr('cx', function(d) { return d.x; })
+        .attr('cy', function(d) { return d.y; });
+
+    // We also need to update positions of the links.
+    // For those elements, the force layout sets the
+    // `source` and `target` properties, specifying
+    // `x` and `y` values in each case.
+
+    link.attr('x1', function(d) { return d.source.x; })
+        .attr('y1', function(d) { return d.source.y; })
+        .attr('x2', function(d) { return d.target.x; })
+        .attr('y2', function(d) { return d.target.y; });
+
+});
+
+force.start();
