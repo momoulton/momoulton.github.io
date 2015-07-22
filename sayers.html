@@ -299,8 +299,6 @@ links = [
 var width = 640,
     height = 640;
 
-var color = d3.scale.category20();
-
 var svg = d3.select('body').append('svg')
     .attr('width', width)
     .attr('height', height);
@@ -308,7 +306,11 @@ var svg = d3.select('body').append('svg')
 var force = d3.layout.force()
     .size([width, height])
     .nodes(nodes)
-    .links(links);
+    .links(links)
+    .linkStrength(0.1)
+    .friction(0.9)
+    .charge(-300)
+    .gravity(0.1);
 
 force.linkDistance(width/2);
 
@@ -322,7 +324,7 @@ var node = svg.selectAll('.node')
     .data(nodes)
     .enter().append('circle')
     .attr('class', 'node')
-    .style("fill", "gray");
+    .style("fill", "gray")
 
 force.on('end', function() {
 
