@@ -168,18 +168,9 @@ var Person = function(name, category, options) {
     sonstuff = {blurb: "John Anthony (White) Fleming was Sayers' son, born in January 1924. He was raised by Ivy Shrimpton and adopted legally by Mac Fleming. Sayers paid for his upbringing and became increasingly involved in his life as he got older, though she never disclosed his existence to her parents. Fleming attended Oxford (Balliol College).", start_date: 1924, end_date: 1957};
     son = new Person("John Anthony Fleming", "family", sonstuff);
 
-var Category = function(name) {
-      var me = this;
-      this.name = name;
-      nodes.push(me);
-    };
+    margleighstuff = {blurb: "Margaret Leigh was Sayers' cousin and close contemporary."};
+    margleigh = new Person("Margaret Leigh", "family", margleighstuff);
 
-    family = new Category("Family");
-    london = new Category("London");
-    oxford = new Category("Oxford");
-    somerville = new Category("Somerville");
-    bluntisham = new Category("Bluntisham");
-    france = new Category("L'Ecole des Roches");
 
 // nodes.forEach(function(n) {
 //       var div = document.createElement('div');
@@ -206,98 +197,134 @@ var Category = function(name) {
 //       document.body.appendChild(div);
 //     })
 
-// var count = 0;
+var count = 0;
 
-// nodes.forEach(function(n) {
-//   var div = document.createElement('div');
-//   div.innerHTML = count + ": " + n.name + " " + n.category;
-//   document.body.appendChild(div);
-//   count = count + 1;
-// });
+nodes.forEach(function(n) {
+  var div = document.createElement('div');
+  div.innerHTML = count + ": " + n.name + " " + n.category;
+  document.body.appendChild(div);
+  count = count + 1;
+});
 
 links = [
+  {source: 0, target: 1}, //sayers is related to everyone
+  {source: 0, target: 2},
+  {source: 0, target: 3},
+  {source: 0, target: 4},
+  {source: 0, target: 5},
+  {source: 0, target: 6},
+  {source: 0, target: 7},
+  {source: 0, target: 8},
+  {source: 0, target: 9},
+  {source: 0, target: 10},
+  {source: 0, target: 11},
+  {source: 0, target: 12},
+  {source: 0, target: 13},
+  {source: 0, target: 14},
+  {source: 0, target: 15},
+  {source: 0, target: 16},
+  {source: 0, target: 17},
+  {source: 0, target: 18},
+  {source: 0, target: 19},
+  {source: 0, target: 20},
+  {source: 0, target: 21},
+  {source: 0, target: 22},
+  {source: 0, target: 23},
+  {source: 0, target: 24},
+  {source: 0, target: 25},
+  {source: 0, target: 26},
+  {source: 0, target: 27},
+  {source: 0, target: 28},
+  {source: 0, target: 29},
+  {source: 0, target: 30},
+  {source: 0, target: 31},
+  {source: 0, target: 32},
+  {source: 0, target: 33},
+  {source: 0, target: 34},
+  {source: 0, target: 35},
+  {source: 0, target: 36},
+  {source: 0, target: 37},
+  {source: 0, target: 38},
+  {source: 0, target: 39},
+  {source: 0, target: 40},
+  {source: 0, target: 41},
+  {source: 0, target: 42},
+  {source: 0, target: 43},
+  {source: 0, target: 44},
+  {source: 0, target: 45},
+  {source: 0, target: 46},
   {source: 0, target: 47},
-  {source: 0, target: 48},
-  {source: 0, target: 49},
-  {source: 0, target: 51},
-  {source: 0, target: 52},
-  {source: 49, target: 50},
-  {source: 47, target: 46},
-  {source: 46, target: 18},
-  {source: 46, target: 45},
-  {source: 47, target: 9},
-  {source: 9, target: 10},
-  {source: 9, target: 11},
-  {source: 9, target: 14},
-  {source: 9, target: 19},
-  {source: 9, target: 20},
-  {source: 47, target: 10},
-  {source: 10, target: 12},
-  {source: 10, target: 13},
-  {source: 10, target: 15},
-  {source: 10, target: 16},
-  {source: 10, target: 18},
-  {source: 15, target: 16},
-  {source: 47, target: 11},
-  {source: 47, target: 12},
-  {source: 47, target: 13},
-  {source: 47, target: 14},
-  {source: 47, target: 15},
-  {source: 47, target: 16},
-  {source: 47, target: 18},
-  {source: 47, target: 19},
-  {source: 47, target: 20},
-  {source: 48, target: 1},
-  {source: 48, target: 5},
-  {source: 5, target: 46},
-  {source: 48, target: 7},
-  {source: 48, target: 41},
-  {source: 48, target: 42},
-  {source: 48, target: 43},
-  {source: 48, target: 44},
-  {source: 48, target: 45},
-  {source: 49, target: 3},
-  {source: 49, target: 21},
-  {source: 21, target: 38},
-  {source: 49, target: 22},
-  {source: 49, target: 26},
-  {source: 49, target: 27},
-  {source: 27, target: 23},
-  {source: 49, target: 31},
-  {source: 31, target: 32},
-  {source: 49, target: 32},
-  {source: 49, target: 38},
-  {source: 49, target: 40},
-  {source: 32, target: 40},
-  {source: 50, target: 2},
-  {source: 50, target: 6},
-  {source: 50, target: 8},
-  {source: 6, target: 35},
-  {source: 8, target: 36},
-  {source: 50, target: 35},
-  {source: 50, target: 36},
-  {source: 50, target: 23},
-  {source: 50, target: 25},
-  {source: 50, target: 28},
-  {source: 50, target: 29},
-  {source: 50, target: 30},
-  {source: 50, target: 34},
-  {source: 34, target: 4},
-  {source: 49, target: 4},
-  {source: 52, target: 4},
-  {source: 39, target: 4},
-  {source: 50, target: 37},
-  {source: 51, target: 17},
-  {source: 20, target: 17},
-  {source: 52, target: 4},
-  {source: 52, target: 33},
-  {source: 52, target: 39},
-  {source: 43, target: 44},
-  {source: 43, target: 1}
+  {source: 9, target: 10}, // henry sayers to helen sayers
+  {source: 9, target: 11}, // henry sayers to robert sayers
+  {source: 9, target: 14}, // henry sayers to gertrude sayers
+  {source: 9, target: 19}, // henry sayers to eleanor sayers
+  {source: 9, target: 20}, // henry sayers to gerald sayers
+  {source: 9, target: 13}, // henry sayers to mabel leigh
+  {source: 9, target: 17}, // henry sayers to betty osborne
+  {source: 10, target: 12}, // helen sayers to percival leigh
+  {source: 10, target: 13}, // helen sayers to mabel leigh
+  {source: 10, target: 15}, // helen sayers to henry leigh
+  {source: 10, target: 16}, // helen sayers to maud leigh
+  {source: 10, target: 18}, // helen sayers to ivy shrimpton
+  {source: 10, target: 17}, // helen sayers to betty osborne
+  {source: 10, target: 47}, // helen sayers to margeret leigh
+  {source: 11, target: 14}, // robert sayers to gertrude sayers
+  {source: 11, target: 19}, // robert sayers to eleanor sayers
+  {source: 12, target: 13}, // percival leigh to mabel leigh
+  {source: 12, target: 15}, // percival leigh to henry leigh
+  {source: 13, target: 15}, // mabel leigh to henry leigh
+  {source: 13, target: 17}, // mabel leigh to betty osborne
+  {source: 13, target: 47}, // mabel leigh to margaret leigh
+  {source: 14, target: 19}, // gertrude sayers to eleanor sayers
+  {source: 14, target: 20}, // gertrude sayers to gerald sayers
+  {source: 15, target: 16}, // henry leigh to maud leigh
+  {source: 15, target: 47}, // henry leigh to margaret leigh
+  {source: 16, target: 47}, // maud leigh to margaret leigh
+  {source: 2, target: 6}, // jim jaeger to muriel byrne
+  {source: 2, target: 23}, // jim jaeger to tony godfrey
+  {source: 2, target: 25}, // jim jaeger to elsie henderson
+  {source: 2, target: 26}, // jim jaeger to hugh percey allen
+  {source: 2, target: 27}, // jim jaeger to arthur forrest
+  {source: 2, target: 28}, // jim jaeger to amphy middlemore
+  {source: 2, target: 29}, // jim jaeger to dorothy rowe
+  {source: 2, target: 30}, // jim jaeger to charis barnett
+  {source: 2, target: 34}, // jim jaeger to doreen wallace
+  {source: 2, target: 35}, // jim jaeger to winifred holtby
+  {source: 4, target: 33}, // eric whelpton to charles crichton
+  {source: 4, target: 34}, // eric whelpton to doreen wallace
+  {source: 4, target: 39}, // eric whelpton to adele camons
+  {source: 5, target: 46}, // mac fleming to ja fleming
+  {source: 6, target: 23}, // muriel byrne to tony godfrey
+  {source: 6, target: 25}, // muriel byrne to elsie henderson
+  {source: 6, target: 36}, // muriel byrne to marjorie barber
+  {source: 7, target: 45}, // norman davey to bill white
+  {source: 8, target: 31}, // vera brittain to basil blackwell
+  {source: 8, target: 35}, // vera brittain to winifred holtby
+  {source: 8, target: 36}, // vera brittain to marjorie barber
+  {source: 17, target: 20}, // betty osborne to gerald sayers
+  {source: 18, target: 46}, // ivy shrimpton to ja fleming
+  {source: 21, target: 22}, // giles dixey to frank brabant
+  {source: 21, target: 38}, // giles dixey to roger dixey
+  {source: 23, target: 25}, // tony godfrey to elsie henderson
+  {source: 23, target: 26}, // tony godfrey to hugh percy allen
+  {source: 23, target: 27}, // tony godfrey to arthur forrest
+  {source: 23, target: 29}, // tony godfrey to dorothy rowe
+  {source: 23, target: 30}, // tony godfrey to charis barnett
+  {source: 23, target: 34}, // tony godfrey to doreen wallace
+  {source: 24, target: 28}, //  eleanor chase to amphy middlemore
+  {source: 25, target: 29}, // elsie henderson to dorothy rowe
+  {source: 25, target: 30}, // elsie henderson to charis barnett
+  {source: 25, target: 34}, // elsie henderson to doreen wallace
+  {source: 26, target: 27}, // hugh percy allen to arthur forrest
+  {source: 29, target: 30}, // dorothy rowe to charis barnett
+  {source: 31, target: 32}, // leonard hodgson to basil blackwell
+  {source: 32, target: 40}, // basil blackwell to christine blackwell
+  {source: 43, target: 44}, // andrew dakers to mrs pendred
+  {source: 1, target: 43} // john cournos to andrew dakers
 ]
 
-var width = 640,
-    height = 640;
+var width = 1000,
+    height = 1000;
 
 var svg = d3.select('body').append('svg')
     .attr('width', width)
@@ -319,12 +346,19 @@ var link = svg.selectAll('.link')
     .enter().append('line')
     .attr('class', 'link');
 
-
 var node = svg.selectAll('.node')
     .data(nodes)
     .enter().append('circle')
     .attr('class', 'node')
-    .style("fill", "gray")
+    .style("fill", function(d) {
+        if (d.category === "London") {return "blue";}
+        else if (d.category === "family") {return "red";}
+        else if (d.category === "Oxford") {return "gray";}
+        else if (d.category === "Somerville") {return "violet";}
+        else if (d.category === "Godolphin") {return "aqua";}
+        else if (d.category === "L'Ecole des Roches") {return "green";}
+        else {return "black";}
+    })
 
 force.on('end', function() {
 
