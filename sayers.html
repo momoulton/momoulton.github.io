@@ -12,8 +12,6 @@
 <body>
   <header>The World of Dorothy Sayers: a Portrait of an Artist</header>
   <br>
-
-    <p class="label">D3 Force-Direction Layout: Circles</p>
   <script type="text/javascript">
 
 var width = 500,
@@ -25,7 +23,6 @@ var svg = d3.select('body').append('svg')
 
 var force = d3.layout.force()
     .size([width, height])
-   // .linkDistance(150)
     .friction(.9)
     .charge(-400)
     .gravity(0.1);

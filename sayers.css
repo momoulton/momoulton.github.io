@@ -34,23 +34,33 @@ svg {
   position: relative;
 }
 
-.label {
-  background-color: #E0E0D1;
-  font-size: 24px;
-}
-
 .node {
   stroke: #fff;
-  stroke-width: 1.5px;
+  stroke-width: 1px;
 }
 
 .link {
   stroke: black;
-  stroke-opacity: .6;
+  stroke-opacity: .5;
 }
 
 d3-tip {
     line-height: .5;
     color: black;
+}
+
+text {
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+
+#info {
+  position: relative;
+  background-color: #E0E0D1;
+}
+
+#chart {
+  position: relative;
+  display: inline;
 }
 
