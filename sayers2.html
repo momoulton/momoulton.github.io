@@ -13,101 +13,22 @@
   <header>The World of Dorothy Sayers: a Portrait of an Artist</header>
   <br>
   <div id="info"></div>
-<div id="chart">
-  <script type="text/javascript">
-
-var width = 750,
-    height = 750;
-
-var svg = d3.select('body').append('svg')
-    .attr('width', width)
-    .attr('height', height);
-
-var force = d3.layout.force()
-    .size([width, height])
-    .friction(.9)
-    .charge(-2000)
-    .gravity(0.1);
-
-d3.json("sayers.json", function(error, graph) {
-    if (error) throw error;
-
-    force
-        .nodes(graph.nodes)
-        .links(graph.links)
-        .start();
-
-    var link = svg.selectAll('.link')
-        .data(graph.links)
-        .enter().append('line')
-        .attr('class', 'link');
-
-    var node = svg.selectAll('.node')
-        .data(graph.nodes)
-        .enter().append('g')
-        .attr('class', 'node')
-       .on("mouseover", mouseover)
-        .on("mouseout", mouseout)
-        .on("click", click)
-        .call(force.drag);
-
-    node.append("circle")
-    .attr("r", 15)
-    .style("fill", function(d) {
-            if (d.category === "London") {return "#7A297A";}
-            else if (d.category === "family") {return "#A30000";}
-            else if (d.category === "Oxford") {return "#297A29";}
-            else if (d.category === "Somerville") {return "#7ACC29";}
-            else if (d.category === "Godolphin") {return "#E6E68A";}
-            else if (d.category === "L'Ecole des Roches") {return "#CCA37A";}
-            else if (d.category === "Bluntisham") {return "#7A5229";}
-            else if (d.category === "self") {return "#2929A3";}
-            else {return "black";}
-        });
-
-    node.append("text")
-    .attr("x", 12)
-    .attr("dy", ".35em")
-    .style("stroke", "black")
-    .text(function(d) { return d.name; });
-
-    force.on('tick', function() {
-        node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-        link.attr('x1', function(d) { return d.source.x; })
-            .attr('y1', function(d) { return d.source.y; })
-            .attr('x2', function(d) { return d.target.x; })
-            .attr('y2', function(d) { return d.target.y; });
-        });
-    });
-
-function mouseover() {
-  d3.select(this).select("circle").transition()
-      .duration(750)
-      .attr("r", 30);
-}
-
-function mouseout() {
-  d3.select(this).select("circle").transition()
-      .duration(750)
-      .attr("r", 15);
-}
-
-function click(d) {
-  d3.select(this).select("circle").transition()
-      .duration(750)
-      .attr("r", 30);
-  var infoDiv = document.getElementById("info");
-  infoDiv.innerHTML = d.blurb;
-
-}
-
-  </script>
-</div>
-
+  <div id="filter">Filter By Year</div>
+  <div id="key">
+    <ul>
+      <li><ul><li id="family"></li><li>Family</li></ul></li>
+      <li><ul><li id="Bluntisham"></li><li>Bluntisham</li></ul></li>
+      <li><ul><li id="Godolphin"></li><li>Godolphin School</li></ul></li>
+      <li><ul><li id="Somerville"></li><li>Somerville College</li></ul></li>
+      <li><ul><li id="Oxford"></li><li>Oxford</li></ul></li>
+      <li><ul><li id="France"></li><li>L'Ecole des Roches</li></ul></li>
+      <li><ul><li id="London"></li><li>London</li></ul></li>
+    </ul>
+  </div>
+  <svg width="750" height="750"></svg>
 
   <footer>
     <ul>
-      <li>Filter by Year</li>
       <li>About & Credits</li>
     </ul>
   </footer>
