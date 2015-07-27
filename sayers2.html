@@ -4,7 +4,7 @@
 <head>
   <link rel='stylesheet' type="text/css" href="sayers.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-  <script type='text/javascript' src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"> </script>
+
 
 
 </head>
@@ -12,26 +12,28 @@
 <body>
   <header>The World of Dorothy Sayers: a Portrait of an Artist</header>
   <br>
-  <div id="info"></div>
-  <div id="filter">Filter By Year</div>
-  <div id="key">
-    <ul>
-      <li><ul><li id="family"></li><li>Family</li></ul></li>
-      <li><ul><li id="Bluntisham"></li><li>Bluntisham</li></ul></li>
-      <li><ul><li id="Godolphin"></li><li>Godolphin School</li></ul></li>
-      <li><ul><li id="Somerville"></li><li>Somerville College</li></ul></li>
-      <li><ul><li id="Oxford"></li><li>Oxford</li></ul></li>
-      <li><ul><li id="France"></li><li>L'Ecole des Roches</li></ul></li>
-      <li><ul><li id="London"></li><li>London</li></ul></li>
-    </ul>
+  <div id="menu">
+    <div id="info"></div>
+    <div id="filter">Filter By Year</div>
+    <div id="key">
+      <ul>
+        <li><ul><li id="family" class="keycolor"></li><li class="keytext">Family</li></ul></li>
+        <li><ul><li id="Bluntisham" class="keycolor"></li><li class="keytext">Bluntisham</li></ul></li>
+        <li><ul><li id="Godolphin" class="keycolor"></li><li class="keytext">Godolphin School</li></ul></li>
+        <li><ul><li id="Somerville" class="keycolor"></li><li class="keytext">Somerville College</li></ul></li>
+        <li><ul><li id="Oxford" class="keycolor"></li><li class="keytext">Oxford</li></ul></li>
+        <li><ul><li id="France" class="keycolor"></li><li class="keytext">L'Ecole des Roches</li></ul></li>
+        <li><ul><li id="London" class="keycolor"></li><li class="keytext">London</li></ul></li>
+      </ul>
+    </div>
   </div>
   <svg width="750" height="750"></svg>
 
-  <footer>
+<!--   <footer>
     <ul>
-      <li>About & Credits</li>
+      <li><a href="sayersabout.html">About & Credits</a></li>
     </ul>
-  </footer>
+  </footer> -->
 
 
 </body>

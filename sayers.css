@@ -22,7 +22,6 @@ ol, ul {
 
 footer ul li {
   display:inline;
-  padding: 20px;
   text-align: center;
   left: 0;
   bottom: 0;
@@ -30,6 +29,11 @@ footer ul li {
   height: 50px;
   overflow: hidden;
   margin-top: 50px;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: black;
 }
 
 .node {
@@ -47,49 +51,55 @@ text {
   pointer-events: none;
 }
 
+#menu {
+  float: left;
+  width: 30%;
+}
+
 svg {
-  width: 70%;
   display: inline;
-  float: right;
 }
 
 #info {
-  width: 30%;
   background-color: #E0E0D1;
   opacity: .6;
-  float: left;
+  margin: 5px;
 }
 
 #filter {
-  width: 30%;
   background-color: #E0E0D1;
   opacity: .6;
-  display: inline-block;
-  float: left;
-}
-
-#key {
-  width: 30%;
-  background-color: #E0E0D1;
-  opacity: .6;
-  display: inline-block;
-  float: left;
+  display: block;
+  margin: 5px;
 }
 
 #key ul ul li {
-  border-radius: calc(50px/2);
-  max-width: 25px;
-  min-height: 25px;
-  display: block;
+  display: inline-block;
 }
 
-#key ul li {
+#key ul {
+  list-style-type: none;
+}
+
+#key {
+  background-color: #E0E0D1;
+  opacity: .6;
   display: block;
+  margin: 5px;
+}
+
+.keytext {
+  transform: translate(15px, -10px);
+}
+
+.keycolor {
+  border-radius: calc(50px/2);
+  height: 2em;
+  width: 2em;
 }
 
 #London {
   background-color: #7A297A;
-  height: 25px;
 }
 
 #family {
@@ -103,12 +113,21 @@ svg {
 #Bluntisham {
   background-color: #7A5229;
 }
+
 #Somerville {
   background-color: #7ACC29;
 }
+
 #Godolphin {
   background-color: #E6E68A;
 }
+
 #France {
   background-color: #CCA37A;
+}
+
+#about {
+  background-color: #E0E0D1;
+  opacity: .6;
+  margin-bottom: 300px;
 }
