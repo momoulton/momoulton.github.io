@@ -49,6 +49,7 @@ footer ul li a {
 text {
   font: 10px sans-serif;
   pointer-events: none;
+  opacity: 1;
 }
 
 #menu {

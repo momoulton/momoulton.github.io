@@ -104,5 +104,166 @@
         .attr("r", 30);
     var infoDiv = document.getElementById("info");
     infoDiv.innerHTML = d.blurb;
-
   }
+
+document.getElementById("family").addEventListener("mouseover", function(){
+  d3.selectAll("circle").each(function(d) {
+    if (d.category !== "family" && d.category !== "self")
+    {
+      $(this).css("opacity", "0.2");
+
+    }
+  })
+  d3.selectAll("text").each(function(d) {
+    if (d.category !== "family" && d.category !== "self")
+    {
+      $(this).css("opacity", "0.2");
+    }
+  })
+});
+
+document.getElementById("family").addEventListener("mouseout", function(){
+  d3.selectAll("circle").transition()
+        .style("opacity", 1);
+  d3.selectAll("text").transition()
+        .style("opacity", 1);
+});
+
+document.getElementById("Bluntisham").addEventListener("mouseover", function(){
+  d3.selectAll("circle").each(function(d) {
+    if (d.category !== "Bluntisham" && d.category !== "self")
+    {
+      $(this).css("opacity", "0.2");
+
+    }
+  })
+  d3.selectAll("text").each(function(d) {
+    if (d.category !== "Bluntisham" && d.category !== "self")
+    {
+      $(this).css("opacity", "0.2");
+    }
+  })
+});
+
+document.getElementById("Bluntisham").addEventListener("mouseout", function(){
+  d3.selectAll("circle").transition()
+        .style("opacity", 1);
+  d3.selectAll("text").transition()
+        .style("opacity", 1);
+});
+
+document.getElementById("Godolphin").addEventListener("mouseover", function(){
+  d3.selectAll("circle").each(function(d) {
+    if (d.category !== "Godolphin" && d.category !== "self")
+    {
+      $(this).css("opacity", "0.2");
+
+    }
+  })
+  d3.selectAll("text").each(function(d) {
+    if (d.category !== "Godolphin" && d.category !== "self")
+    {
+      $(this).css("opacity", "0.2");
+    }
+  })
+});
+
+document.getElementById("Godolphin").addEventListener("mouseout", function(){
+  d3.selectAll("circle").transition()
+        .style("opacity", 1);
+  d3.selectAll("text").transition()
+        .style("opacity", 1);
+});
+
+document.getElementById("Somerville").addEventListener("mouseover", function(){
+  d3.selectAll("circle").each(function(d) {
+    if (d.category !== "Somerville" && d.category !== "self")
+    {
+      $(this).css("opacity", "0.2");
+    }
+  })
+  d3.selectAll("text").each(function(d) {
+    if (d.category !== "Somerville" && d.category !== "self")
+    {
+      $(this).css("opacity", "0.2");
+    }
+  })
+});
+
+document.getElementById("Somerville").addEventListener("mouseout", function(){
+  d3.selectAll("circle").transition()
+        .style("opacity", 1);
+  d3.selectAll("text").transition()
+        .style("opacity", 1);
+});
+
+document.getElementById("Oxford").addEventListener("mouseover", function(){
+  d3.selectAll("circle").each(function(d) {
+    if (d.category !== "Oxford" && d.category !== "self")
+    {
+      $(this).css("opacity", "0.2");
+
+    }
+  })
+  d3.selectAll("text").each(function(d) {
+    if (d.category !== "Oxford" && d.category !== "self")
+    {
+      $(this).css("opacity", "0.2");
+    }
+  })
+});
+
+document.getElementById("Oxford").addEventListener("mouseout", function(){
+  d3.selectAll("circle").transition()
+        .style("opacity", 1);
+  d3.selectAll("text").transition()
+        .style("opacity", 1);
+});
+
+document.getElementById("London").addEventListener("mouseover", function(){
+  d3.selectAll("circle").each(function(d) {
+    if (d.category !== "London" && d.category !== "self")
+    {
+      $(this).css("opacity", "0.2");
+
+    }
+  })
+  d3.selectAll("text").each(function(d) {
+    if (d.category !== "London" && d.category !== "self")
+    {
+      $(this).css("opacity", "0.2");
+    }
+  })
+});
+
+document.getElementById("London").addEventListener("mouseout", function(){
+  d3.selectAll("circle").transition()
+        .style("opacity", 1);
+  d3.selectAll("text").transition()
+        .style("opacity", 1);
+});
+
+
+document.getElementById("France").addEventListener("mouseover", function(){
+  d3.selectAll("circle").each(function(d) {
+    if (d.category !== "L'Ecole des Roches" && d.category !== "self")
+    {
+      $(this).css("opacity", "0.2");
+    }
+  })
+  d3.selectAll("text").each(function(d) {
+    if (d.category !== "L'Ecole des Roches" && d.category !== "self")
+    {
+      $(this).css("opacity", "0.2");
+    }
+  })
+});
+
+document.getElementById("France").addEventListener("mouseout", function(){
+  d3.selectAll("circle").transition()
+        .style("opacity", 1);
+  d3.selectAll("text").transition()
+        .style("opacity", 1);
+});
+
+
