@@ -1,4 +1,4 @@
-
+// Set up the svg and layout for the social network graph
   var width = 750,
       height = 750;
 
@@ -10,6 +10,7 @@
       .charge(-2000)
       .gravity(0.1);
 
+// Social network graph
   d3.json("sayers.json", function(error, graph) {
       if (error) throw error;
 
@@ -30,11 +31,11 @@
           .on("mouseover", mouseover)
           .on("mouseout", mouseout)
           .on("click", click)
-          .call(force.drag);
+          .call(force.drag); //so that users can modify
 
       node.append("circle")
-      .attr("r", 15)
-      .style("fill", function(d) {
+      .attr("r", 15) //radius of circle
+      .style("fill", function(d) { //set colors by category
               if (d.category === "London") {return "#7A297A";}
               else if (d.category === "family") {return "#A30000";}
               else if (d.category === "Oxford") {return "#297A29";}
@@ -46,15 +47,15 @@
               else {return "black";}
           });
 
-      node.append("text")
+      node.append("text") //add name to nodes
       .attr("x", 12)
       .attr("dy", ".35em")
       .style("stroke", "black")
       .text(function(d) { return d.name; });
 
-      force.on('tick', function() {
+      force.on('tick', function() { //draw graph
           node.attr("transform", function(d) {
-            if (d.x >= 0 && d.x <= width)
+            if (d.x >= 0 && d.x <= width) // keep all nodes within svg
               { if (d.y >= 0 && d.y <= height)
                 {return "translate(" + d.x + "," + d.y + ")";}
                 else if (d.y < 0)
@@ -86,19 +87,19 @@
           });
       });
 
-  function mouseover() {
+  function mouseover() { //grow circles when mouseover
     d3.select(this).select("circle").transition()
         .duration(750)
         .attr("r", 30);
   }
 
-  function mouseout() {
+  function mouseout() { //return circles to original size
     d3.select(this).select("circle").transition()
         .duration(750)
         .attr("r", 15);
   }
 
-  function click(d) {
+  function click(d) { //display blurb when clicked
     d3.select(this).select("circle").transition()
         .duration(750)
         .attr("r", 30);
@@ -106,34 +107,8 @@
     bioDiv.innerHTML = d.blurb;
   }
 
-// var keys = ["family", "Bluntisham", "Godolphin", "Somerville", "Oxford", "France", "London"];
-
-// for (i = 0; i < keys.length; i++) {
-//   key = keys[i];
-//   document.getElementById(key).addEventListener("mouseover", function(){
-//     d3.selectAll("circle").each(function(d) {
-//       if (d.category !== key && d.category !== "self")
-//       {
-//         $(this).css("opacity", "0.2");
-
-//       }
-//     })
-//     d3.selectAll("text").each(function(d) {
-//       if (d.category !== key && d.category !== "self")
-//       {
-//         $(this).css("opacity", "0.2");
-//       }
-//     })
-//   });
-
-//   document.getElementById(key).addEventListener("mouseout", function(){
-//     d3.selectAll("circle").transition()
-//           .style("opacity", 1);
-//     d3.selectAll("text").transition()
-//           .style("opacity", 1);
-//   });
-// }
-
+// A series of event listeners so that mousing over the key circles
+// causes non-relevant nodes and links to fade out
 document.getElementById("family").addEventListener("mouseover", function(){
   d3.selectAll("circle").each(function(d) {
     if (d.category !== "family" && d.category !== "self")
@@ -364,6 +339,8 @@ document.getElementById("France").addEventListener("mouseout", function(){
         .style("stroke", "black");
 });
 
+
+//create the Filter By Year slider from NoUiSlider
 var slider = document.getElementById('range');
 
 noUiSlider.create(slider, {
@@ -380,6 +357,7 @@ noUiSlider.create(slider, {
   }
 });
 
+// create the display of the selected year
 var sliderValueElement = document.getElementById('slider-range-value');
 
 slider.noUiSlider.on('update', function( values, handle ) {
@@ -387,11 +365,12 @@ slider.noUiSlider.on('update', function( values, handle ) {
   sliderValueElement.innerHTML = "Year: " + year;
 });
 
+//create the checkbox to turn the filtering on or off
 var checkbox = document.getElementById('checkbox');
 
 function toggle ( element ){
 
-  // If the checkbox is checked, disabled the slider.
+  // If the checkbox is checked, disabled the slider and undo all fading.
   // Otherwise, re-enable it.
   if ( this.checked ) {
     element.setAttribute('disabled', true);
@@ -412,6 +391,7 @@ checkbox.addEventListener('click', function(){
   toggle.call(this, slider);
 });
 
+// for each change in the slider selection, update the fading of relevant nodes
 slider.noUiSlider.on('change', function(){
   var sliderValue = slider.noUiSlider.get();
   d3.selectAll("circle").each(function(d) {

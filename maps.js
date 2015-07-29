@@ -1,3 +1,5 @@
+// JS for map
+
 function initialize() {
 
     var mapOptions = {
