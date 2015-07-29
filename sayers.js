@@ -102,8 +102,8 @@
     d3.select(this).select("circle").transition()
         .duration(750)
         .attr("r", 30);
-    var infoDiv = document.getElementById("info");
-    infoDiv.innerHTML = d.blurb;
+    var bioDiv = document.getElementById("bio");
+    bioDiv.innerHTML = d.blurb;
   }
 
 // var keys = ["family", "Bluntisham", "Godolphin", "Somerville", "Oxford", "France", "London"];
@@ -380,8 +380,6 @@ noUiSlider.create(slider, {
   }
 });
 
-
-
 var sliderValueElement = document.getElementById('slider-range-value');
 
 slider.noUiSlider.on('update', function( values, handle ) {
@@ -397,6 +395,11 @@ function toggle ( element ){
   // Otherwise, re-enable it.
   if ( this.checked ) {
     element.setAttribute('disabled', true);
+    d3.selectAll("circle").each(function(d) {
+      {
+        $(this).css("opacity", "1");
+      }
+    });
   } else {
     element.removeAttribute('disabled');
   }
@@ -406,4 +409,17 @@ checkbox.addEventListener('click', function(){
   toggle.call(this, slider);
 });
 
+slider.noUiSlider.on('change', function(){
+  var sliderValue = slider.noUiSlider.get();
+  d3.selectAll("circle").each(function(d) {
+    if (d.start_date <= sliderValue && d.end_date >= sliderValue)
+    {
+      $(this).css("opacity", "1");
+    }
+    else
+    {
+      $(this).css("opacity", ".2");
+    }
+  })
+});
 
