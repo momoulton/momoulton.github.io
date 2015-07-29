@@ -400,6 +400,9 @@ function toggle ( element ){
         $(this).css("opacity", "1");
       }
     });
+    d3.selectAll(".link").each(function(d) {
+      $(this).css("stroke", "black");
+    });
   } else {
     element.removeAttribute('disabled');
   }
@@ -421,5 +424,18 @@ slider.noUiSlider.on('change', function(){
       $(this).css("opacity", ".2");
     }
   })
+  d3.selectAll(".link").each(function(d) {
+    var target = d.target;
+    var source = d.source;
+    if (target.start_date <= sliderValue && target.end_date >= sliderValue && source.start_date <= sliderValue && source.end_date >= sliderValue)
+    {
+      $(this).css("stroke", "black");
+    }
+    else
+    {
+      $(this).css("stroke", "white");
+    }
+  })
 });
+
 

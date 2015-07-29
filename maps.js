@@ -162,13 +162,6 @@ function initialize() {
         map: map,
         title: '22-24 Newland Street, Witham, Essex (1929-1957)',
     });
-
-    // turns each map marker into a link
-    for (var i = 0; i < markers.length; i++) {
-        google.maps.event.addListener(markers[i], 'click', function() {
-            window.location.href = this.url;
-        });
-    }
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

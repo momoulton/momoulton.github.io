@@ -3,26 +3,41 @@
 
 <head>
   <link rel='stylesheet' type="text/css" href="sayers.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-
-
-
 </head>
 
 <body>
-  <header>The World of Dorothy Sayers: a Portrait of an Artist</header>
-  <br>
-  <div id="about">
-    <p>This site was created by Mo Moulton for a course at the Harvard Summer School, DGMDS-15: Creative Explorations in Screen-Based and Phyiscal Computing. It uses information gathered from archival and library resources. The background image is taken from the Sayers collection at Smith College, Northampton.</p>
+  <div class="wrapper">
+    <header>The World of Dorothy L. Sayers: a Portrait of an Artist</header>
+    <br>
+
+    <div class="about">
+      <h3>About this project</h3>
+      <p>This site explores the life of novelist, poet, and translator Dorothy L. Sayers (1893-1957). It emphasizes context: social context, geographical context, literary context, historical context. No artist is an island; by providing visual means to represent the contexts in which a given artist lived and work, we can explore the connections that shaped a body of work.</p>
+      <p>This is a work in progress. The underlying data could always be made more complete. While the map treats Sayers' whole life, the social network graph covers only her first thirty years, roughly speaking. Note, in particular, that I don't have accurate dates for when many of Sayers' relationships ended, and have used her death year (1957) as a default, causing many relationships to seem more long-lived than they actually were. If you have contributions or suggestions, please get in touch. My full contact information can be found on my <a href="http://momoulton.com">main site</a>.</p>
+    </div>
+    <div class="about">
+      <h3>Technical notes</h3>
+      <p>The social network animation was built using the force-directed graph in the D3.js library. It simulates the interactions between charged particles. Drag nodes around to rearrange the graph and see the relationships between individuals from different perspectives.</p>
+      <p>The map is built using the Google Maps API and is fully zoomable.</p>
+    </div>
+    <div class="about">
+      <h3>Acnowledgements</h3>
+      <p>The initial stages of this project were designed and built under the auspices of Harvard Summer School's DGMD-15 Creative Explorations in Screen-Based and Physical Computing. My thanks to Shaunalynn Duffy, Alec Resnick, Bakhtiar Mikhak, and my classmates for their feedback and support.</p>
+      <p>The background image is taken from the Sayers Collection at the Mortimer Rare Book Room, Smith College, Northampton, Mass.</p>
+      <p>The underlying data is gathered from a number of sources, but I want to acknowledge in particular the invaluable work of Barbara Reynolds, whose biography of Sayers and edited collections of her letters provide the majority of the data.</p>
+    </div>
+
+    <div class="push"></div>
   </div>
 
+  <div class="footer">
   <footer>
     <ul>
-      <li><a href="sayers2.html">Home</a></li>
+      <li><a href="sayers.html">Home</a></li>
+      <li><a href="sayersmap.html">Map</a></li>
     </ul>
   </footer>
-
+</div>
 
 </body>
-  <script type="text/javascript" src="sayers.js"></script>
 </html>

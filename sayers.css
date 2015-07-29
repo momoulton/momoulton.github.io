@@ -3,13 +3,34 @@ header {
   background-color:  #E0E0D1;
   text-align: center;
   font-size: 48px;
-  opacity: .6;
+  opacity: .7;
+  width: 100%;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+  height: 100%;
+  margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.footer, .push {
+  height: 155px; /* .push must be the same height as .footer */
 }
 
 footer {
   background-color:  #E0E0D1;
   font-size: 36px;
-  opacity: .6;
+  opacity: .7;
+  width: 100%;
 }
 
 body {
@@ -22,13 +43,10 @@ ol, ul {
 
 footer ul li {
   display:inline;
-  text-align: center;
-  left: 0;
+  text-align: left;
+  padding-right: 25px;
   bottom: 0;
   width:100%;
-  height: 50px;
-  overflow: hidden;
-  margin-top: 50px;
 }
 
 footer ul li a {
@@ -63,16 +81,18 @@ svg {
 
 #info {
   background-color: #E0E0D1;
-  opacity: .6;
+  opacity: .7;
   margin: 5px;
+  border-radius: 10px;
 }
 
 #filter {
   background-color: #E0E0D1;
-  opacity: .6;
+  opacity: .7;
   display: block;
   margin: 5px;
   min-height: 50px;
+  border-radius: 10px;
 }
 
 #key ul ul li {
@@ -85,9 +105,10 @@ svg {
 
 #key {
   background-color: #E0E0D1;
-  opacity: .6;
+  opacity: .7;
   display: block;
   margin: 5px;
+  border-radius: 10px;
 }
 
 .keytext {
@@ -128,12 +149,62 @@ svg {
   background-color: #CCA37A;
 }
 
-#about {
-  background-color: #E0E0D1;
-  opacity: .6;
-  margin-bottom: 300px;
+.about {
+  background-color:  #E0E0D1;
+  text-align: left;
+  padding: 5px;
+  font-size: 18px;
+  opacity: .7;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.about h3 {
+  padding: 5px;
+  margin-left: 20px;
+}
+
+.about p {
+  padding: 5px;
+  margin-left: 20px;
+}
+
+.about p a {
+  text-decoration: none;
 }
 
 #range {
   margin: 20px 20px 50px 20px;
+}
+
+#slider-range-value {
+  text-align: center;
+}
+
+h2 {
+  padding: 5px;
+}
+.menu {
+  padding: 5px;
+  margin-left: 5px;
+}
+
+#map-canvas {
+    height: 700px;
+    width: 1000px;
+    margin: auto;
+    /*places title over map canvas*/
+    position: fixed;
+    opacity: .9;
+}
+
+#map-label {
+  background-color:  #E0E0D1;
+  text-align: left;
+  text-indent: 20px;
+  padding: 5px;
+  font-size: 18px;
+  opacity: .7;
+  width: 100%;
 }
