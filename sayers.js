@@ -106,6 +106,34 @@
     infoDiv.innerHTML = d.blurb;
   }
 
+// var keys = ["family", "Bluntisham", "Godolphin", "Somerville", "Oxford", "France", "London"];
+
+// for (i = 0; i < keys.length; i++) {
+//   key = keys[i];
+//   document.getElementById(key).addEventListener("mouseover", function(){
+//     d3.selectAll("circle").each(function(d) {
+//       if (d.category !== key && d.category !== "self")
+//       {
+//         $(this).css("opacity", "0.2");
+
+//       }
+//     })
+//     d3.selectAll("text").each(function(d) {
+//       if (d.category !== key && d.category !== "self")
+//       {
+//         $(this).css("opacity", "0.2");
+//       }
+//     })
+//   });
+
+//   document.getElementById(key).addEventListener("mouseout", function(){
+//     d3.selectAll("circle").transition()
+//           .style("opacity", 1);
+//     d3.selectAll("text").transition()
+//           .style("opacity", 1);
+//   });
+// }
+
 document.getElementById("family").addEventListener("mouseover", function(){
   d3.selectAll("circle").each(function(d) {
     if (d.category !== "family" && d.category !== "self")
@@ -120,6 +148,14 @@ document.getElementById("family").addEventListener("mouseover", function(){
       $(this).css("opacity", "0.2");
     }
   })
+  d3.selectAll(".link").each(function(d) {
+    var target = d.target;
+    var source = d.source;
+    if (target.category !== "family" && source.category !== "family")
+    {
+      $(this).css("stroke", "white");
+    }
+  })
 });
 
 document.getElementById("family").addEventListener("mouseout", function(){
@@ -127,6 +163,8 @@ document.getElementById("family").addEventListener("mouseout", function(){
         .style("opacity", 1);
   d3.selectAll("text").transition()
         .style("opacity", 1);
+  d3.selectAll(".link").transition()
+        .style("stroke", "black");
 });
 
 document.getElementById("Bluntisham").addEventListener("mouseover", function(){
@@ -143,6 +181,14 @@ document.getElementById("Bluntisham").addEventListener("mouseover", function(){
       $(this).css("opacity", "0.2");
     }
   })
+  d3.selectAll(".link").each(function(d) {
+    var target = d.target;
+    var source = d.source;
+    if (target.category !== "Bluntisham" && source.category !== "B")
+    {
+      $(this).css("stroke", "white");
+    }
+  })
 });
 
 document.getElementById("Bluntisham").addEventListener("mouseout", function(){
@@ -150,6 +196,8 @@ document.getElementById("Bluntisham").addEventListener("mouseout", function(){
         .style("opacity", 1);
   d3.selectAll("text").transition()
         .style("opacity", 1);
+  d3.selectAll(".link").transition()
+        .style("stroke", "black");
 });
 
 document.getElementById("Godolphin").addEventListener("mouseover", function(){
@@ -166,6 +214,14 @@ document.getElementById("Godolphin").addEventListener("mouseover", function(){
       $(this).css("opacity", "0.2");
     }
   })
+  d3.selectAll(".link").each(function(d) {
+    var target = d.target;
+    var source = d.source;
+    if (target.category !== "Godolphin" && source.category !== "Godolphin")
+    {
+      $(this).css("stroke", "white");
+    }
+  })
 });
 
 document.getElementById("Godolphin").addEventListener("mouseout", function(){
@@ -173,6 +229,8 @@ document.getElementById("Godolphin").addEventListener("mouseout", function(){
         .style("opacity", 1);
   d3.selectAll("text").transition()
         .style("opacity", 1);
+  d3.selectAll(".link").transition()
+        .style("stroke", "black");
 });
 
 document.getElementById("Somerville").addEventListener("mouseover", function(){
@@ -188,6 +246,14 @@ document.getElementById("Somerville").addEventListener("mouseover", function(){
       $(this).css("opacity", "0.2");
     }
   })
+  d3.selectAll(".link").each(function(d) {
+    var target = d.target;
+    var source = d.source;
+    if (target.category !== "Somerville" && source.category !== "Somerville")
+    {
+      $(this).css("stroke", "white");
+    }
+  })
 });
 
 document.getElementById("Somerville").addEventListener("mouseout", function(){
@@ -195,6 +261,8 @@ document.getElementById("Somerville").addEventListener("mouseout", function(){
         .style("opacity", 1);
   d3.selectAll("text").transition()
         .style("opacity", 1);
+  d3.selectAll(".link").transition()
+        .style("stroke", "black");
 });
 
 document.getElementById("Oxford").addEventListener("mouseover", function(){
@@ -211,6 +279,14 @@ document.getElementById("Oxford").addEventListener("mouseover", function(){
       $(this).css("opacity", "0.2");
     }
   })
+  d3.selectAll(".link").each(function(d) {
+    var target = d.target;
+    var source = d.source;
+    if (target.category !== "Oxford" && source.category !== "Oxford")
+    {
+      $(this).css("stroke", "white");
+    }
+  })
 });
 
 document.getElementById("Oxford").addEventListener("mouseout", function(){
@@ -218,6 +294,8 @@ document.getElementById("Oxford").addEventListener("mouseout", function(){
         .style("opacity", 1);
   d3.selectAll("text").transition()
         .style("opacity", 1);
+  d3.selectAll(".link").transition()
+        .style("stroke", "black");
 });
 
 document.getElementById("London").addEventListener("mouseover", function(){
@@ -234,6 +312,14 @@ document.getElementById("London").addEventListener("mouseover", function(){
       $(this).css("opacity", "0.2");
     }
   })
+  d3.selectAll(".link").each(function(d) {
+    var target = d.target;
+    var source = d.source;
+    if (target.category !== "London" && source.category !== "London")
+    {
+      $(this).css("stroke", "white");
+    }
+  })
 });
 
 document.getElementById("London").addEventListener("mouseout", function(){
@@ -241,6 +327,8 @@ document.getElementById("London").addEventListener("mouseout", function(){
         .style("opacity", 1);
   d3.selectAll("text").transition()
         .style("opacity", 1);
+  d3.selectAll(".link").transition()
+        .style("stroke", "black");
 });
 
 
@@ -257,6 +345,14 @@ document.getElementById("France").addEventListener("mouseover", function(){
       $(this).css("opacity", "0.2");
     }
   })
+  d3.selectAll(".link").each(function(d) {
+    var target = d.target;
+    var source = d.source;
+    if (target.category !== "L'Ecole des Roches" && source.category !== "L'Ecole des Roches")
+    {
+      $(this).css("stroke", "white");
+    }
+  })
 });
 
 document.getElementById("France").addEventListener("mouseout", function(){
@@ -264,6 +360,50 @@ document.getElementById("France").addEventListener("mouseout", function(){
         .style("opacity", 1);
   d3.selectAll("text").transition()
         .style("opacity", 1);
+  d3.selectAll(".link").transition()
+        .style("stroke", "black");
+});
+
+var slider = document.getElementById('range');
+
+noUiSlider.create(slider, {
+  start: 1913,
+  step: 1,
+  range: {
+    'min': [ 1893 ],
+    'max': [ 1957 ]
+  },
+  pips: {
+    mode: 'positions',
+    values: [0,25,50,75,100],
+    density: 4
+  }
+});
+
+
+
+var sliderValueElement = document.getElementById('slider-range-value');
+
+slider.noUiSlider.on('update', function( values, handle ) {
+  var year = Math.round(values[handle]);
+  sliderValueElement.innerHTML = "Year: " + year;
+});
+
+var checkbox = document.getElementById('checkbox');
+
+function toggle ( element ){
+
+  // If the checkbox is checked, disabled the slider.
+  // Otherwise, re-enable it.
+  if ( this.checked ) {
+    element.setAttribute('disabled', true);
+  } else {
+    element.removeAttribute('disabled');
+  }
+}
+
+checkbox.addEventListener('click', function(){
+  toggle.call(this, slider);
 });
 
 

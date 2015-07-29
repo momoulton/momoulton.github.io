@@ -72,6 +72,7 @@ svg {
   opacity: .6;
   display: block;
   margin: 5px;
+  min-height: 50px;
 }
 
 #key ul ul li {
@@ -131,4 +132,8 @@ svg {
   background-color: #E0E0D1;
   opacity: .6;
   margin-bottom: 300px;
+}
+
+#range {
+  margin: 20px 20px 50px 20px;
 }
